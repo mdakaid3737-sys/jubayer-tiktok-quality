@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JUBAYER TikTok Quality</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#080808;color:white;font-family:Arial,sans-serif}
+header{text-align:center;padding:25px 12px;border-bottom:2px solid #e60023}
+h1{color:#ff1744}
+main{max-width:600px;margin:30px auto;padding:20px}
+.card{background:#171717;padding:22px;border-radius:15px;margin:18px 0}
+button{background:#e60023;color:white;border:0;padding:14px 20px;border-radius:9px;font-size:16px}
+input{width:100%;margin:15px 0}
+video{width:100%;margin-top:15px;border-radius:10px}
+li{margin:12px 0}
+footer{text-align:center;color:#aaa;padding:25px}
+</style>
+</head>
+<body>
+<header>
+<h1>JUBAYER</h1>
+<p>TikTok Video Quality Method</p>
+</header>
+<main>
+<div class="card">
+<h2>Video Preview</h2>
+<input type="file" id="videoFile" accept="video/*">
+<video id="preview" controls hidden></video>
+</div>
+<div class="card">
+<h2>Recommended Settings</h2>
+<ul>
+<li>Resolution: 1080p</li>
+<li>Frame Rate: 30 or 60 FPS</li>
+<li>Format: MP4</li>
+<li>Codec: H.264</li>
+<li>Enable high-quality uploads in TikTok settings.</li>
+</ul>
+</div>
+<div class="card">
+<h2>JUBAYER Quality Tips</h2>
+<p>Use good lighting and a stable camera.</p>
+<p>Export your video at the original resolution.</p>
+<p>Avoid repeatedly compressing your video.</p>
+</div>
+</main>
+<footer>© 2026 JUBAYER TikTok Quality</footer>
+<script>
+document.getElementById('videoFile').addEventListener('change',function(){
+const file=this.files[0];
+if(file){
+const video=document.getElementById('preview');
+video.src=URL.createObjectURL(file);
+video.hidden=false;
+}
+});
+</script>
+</body>
+</html>
