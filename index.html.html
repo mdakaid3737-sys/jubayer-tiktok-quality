@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#09090d">
+<title>JUBAYER — TikTok Quality Studio</title>
+<style>
+:root{--bg:#09090d;--panel:#14141b;--panel2:#1b1b24;--red:#ff174d;--red2:#ff456b;--muted:#a7a7b5;--line:#2b2b37;--white:#f8f8fc}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--white);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+.wrap{width:min(1120px,92%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:#09090de8;backdrop-filter:blur(14px);border-bottom:1px solid #ffffff12}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:900;letter-spacing:1.4px}
+.brand-mark{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--red),#9d092c);display:grid;place-items:center;box-shadow:0 7px 24px #ff174d44}
+.brand-mark span{font-size:20px;font-weight:900}
+.brand b{font-size:18px}
+nav{display:flex;gap:28px;color:#c5c5d0;font-size:14px}
+nav a:hover{color:#fff}
+.nav-cta,.btn{border:0;border-radius:12px;padding:12px 18px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:9px}
+.nav-cta,.primary{background:var(--red);color:white;box-shadow:0 8px 25px #ff174d30}
+.nav-cta:hover,.primary:hover{background:var(--red2);transform:translateY(-1px)}
+.hero{padding:82px 0 66px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;width:500px;height:500px;border-radius:50%;background:#ff174d18;filter:blur(90px);right:-170px;top:-170px;pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:45px;position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border:1px solid #ff174d55;background:#ff174d12;color:#ff7895;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:1.1px;text-transform:uppercase}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 12px var(--red)}
+h1{font-size:clamp(44px,6.5vw,76px);line-height:.99;letter-spacing:-3px;margin:22px 0 20px;font-weight:950}
+h1 span{color:var(--red)}
+.lead{color:#b9b9c6;font-size:18px;line-height:1.7;max-width:570px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{padding:15px 20px;transition:.2s}
+.secondary{background:#ffffff0a;border:1px solid var(--line);color:white}
+.secondary:hover{background:#ffffff14}
+.trust{display:flex;gap:22px;flex-wrap:wrap;margin-top:30px;color:#aaaab7;font-size:13px}
+.trust span:before{content:"✓";color:#ff5275;font-weight:900;margin-right:7px}
+.preview-shell{background:linear-gradient(145deg,#242430,#101016);border:1px solid #ffffff20;border-radius:28px;padding:17px;box-shadow:0 30px 80px #0009;transform:rotate(1deg)}
+.preview-top{display:flex;align-items:center;justify-content:space-between;padding:3px 4px 15px;color:#c9c9d3;font-size:12px;font-weight:800;letter-spacing:1px}
+.lights{display:flex;gap:5px}.lights i{width:7px;height:7px;border-radius:50%;background:#5b5b68}
+.phone{max-width:310px;margin:auto;border:7px solid #30303a;border-radius:28px;padding:14px;background:radial-gradient(circle at 50% 25%,#49202e,#15151c 58%);min-height:430px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.phone-head{display:flex;justify-content:space-between;color:#ddd;font-size:11px}
+.play{height:190px;display:grid;place-items:center;position:relative}
+.play-ring{width:90px;height:90px;border:1px solid #ff7a98;border-radius:50%;display:grid;place-items:center;background:#ff174d20;box-shadow:0 0 50px #ff174d55}
+.play-ring:after{content:"▶";font-size:29px;margin-left:5px;color:white}
+.equalizer{height:45px;display:flex;align-items:center;justify-content:center;gap:5px}
+.equalizer i{width:5px;border-radius:8px;background:linear-gradient(var(--red2),#a50c36);height:var(--h)}
+.phone-caption{text-align:center}.phone-caption b{font-size:20px;letter-spacing:2px}.phone-caption p{color:#b9b9c6;font-size:12px;margin:5px 0 0}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
+.stat{background:#ffffff08;border:1px solid #ffffff12;border-radius:15px;padding:14px;text-align:center}
+.stat b{display:block;font-size:19px;color:#fff}.stat small{color:#a5a5b2;font-size:11px}
+section{padding:65px 0}
+.section-head{text-align:center;max-width:660px;margin:0 auto 34px}
+.kicker{color:#ff6a89;font-size:12px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase}
+h2{font-size:clamp(29px,4vw,42px);margin:10px 0 12px;letter-spacing:-1.2px}
+.section-head p{color:var(--muted);line-height:1.7;margin:0}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.feature{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:24px}
+.icon{width:44px;height:44px;border-radius:13px;background:#ff174d1a;color:#ff6b8a;display:grid;place-items:center;font-size:21px;margin-bottom:17px}
+.feature h3{margin:0 0 9px;font-size:18px}.feature p{margin:0;color:var(--muted);font-size:14px;line-height:1.7}
+.upload-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:26px}
+.card h3{font-size:22px;margin:0 0 12px}
+.card p{color:var(--muted);line-height:1.65}
+.file-label{display:block;margin-top:20px;padding:16px;border:1px dashed #ff5578;border-radius:13px;text-align:center;color:#ff8ca5;font-weight:800;cursor:pointer;background:#ff174d0b}
+.file-label input{display:none}
+video{width:100%;margin-top:17px;border-radius:12px;background:#000;max-height:330px}
+#fileInfo{font-size:12px;color:#aaa;overflow-wrap:anywhere}
+.settings{list-style:none;padding:0;margin:17px 0 0}
+.settings li{display:flex;justify-content:space-between;gap:15px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+.settings li:last-child{border:0}.settings span{color:var(--muted)}.settings b{color:#fff;text-align:right}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+.step{padding:20px;background:var(--panel);border:1px solid var(--line);border-radius:16px}
+.num{color:var(--red);font-size:12px;font-weight:900;letter-spacing:1px}.step h3{font-size:16px;margin:9px 0}.step p{color:var(--muted);font-size:13px;line-height:1.6;margin:0}
+.notice{background:#ff174d10;border:1px solid #ff174d40;border-radius:16px;padding:18px;color:#d8c5cb;font-size:13px;line-height:1.7;margin-top:22px}
+footer{border-top:1px solid var(--line);padding:30px 0;color:#9999a8;font-size:13px}
+.footer-row{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+@media(max-width:800px){nav{display:none}.hero{padding:55px 0 45px}.hero-grid{grid-template-columns:1fr;gap:35px}.preview-shell{max-width:480px;width:100%;margin:auto}.features{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}.upload-grid{grid-template-columns:1fr}}
+@media(max-width:520px){.nav{height:66px}.nav-cta{padding:10px 12px;font-size:12px}.brand b{font-size:15px}.hero{padding-top:43px}h1{letter-spacing:-2px}.lead{font-size:16px}.features{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.card{padding:20px}.stats{gap:7px}.stat{padding:11px 5px}.stat b{font-size:16px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#"><span class="brand-mark"><span>J</span></span><b>JUBAYER STUDIO</b></a>
+    <nav><a href="#features">Features</a><a href="#preview">Video Preview</a><a href="#guide">Guide</a></nav>
+    <a class="nav-cta" href="#preview">Try It Now <span>↗</span></a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow"><i class="dot"></i> Creator video toolkit</div>
+        <h1>MAKE EVERY<br>FRAME <span>COUNT.</span></h1>
+        <p class="lead">A simple guide to preparing clearer TikTok videos. Preview your clip, check export settings, and get practical quality tips — all in one place.</p>
+        <div class="actions">
+          <a class="btn primary" href="#preview">Preview Your Video <span>→</span></a>
+          <a class="btn secondary" href="#guide">Explore The Guide</a>
+        </div>
+        <div class="trust"><span>Mobile friendly</span><span>Simple workflow</span><span>Free to use</span></div>
+      </div>
+      <div>
+        <div class="preview-shell">
+          <div class="preview-top"><span>JUBAYER / QUALITY STUDIO</span><span class="lights"><i></i><i></i><i></i></span></div>
+          <div class="phone">
+            <div class="phone-head"><span>VIDEO PREVIEW</span><span>9:16</span></div>
+            <div class="play"><div class="play-ring"></div></div>
+            <div>
+              <div class="equalizer">
+                <i style="--h:12px"></i><i style="--h:22px"></i><i style="--h:34px"></i><i style="--h:18px"></i><i style="--h:42px"></i><i style="--h:26px"></i><i style="--h:15px"></i><i style="--h:33px"></i><i style="--h:20px"></i><i style="--h:39px"></i><i style="--h:16px"></i>
+              </div>
+              <div class="phone-caption"><b>JUBAYER</b><p>CREATE • EDIT • SHARE</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat"><b>1080p</b><small>Suggested export</small></div>
+          <div class="stat"><b>9:16</b><small>Vertical format</small></div>
+          <div class="stat"><b>MP4</b><small>Common format</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">What you get</div><h2>Your video workflow, made simple.</h2><p>Helpful tools and clear guidance to prepare your videos before you post.</p></div>
+      <div class="features">
+        <article class="feature"><div class="icon">▣</div><h3>Video Preview</h3><p>Choose a clip from your device and preview it right in your browser.</p></article>
+        <article class="feature"><div class="icon">⚙</div><h3>Export Settings</h3><p>Quick reference for resolution, frame rate, format, and video codec.</p></article>
+        <article class="feature"><div class="icon">✦</div><h3>Quality Tips</h3><p>Simple recording and editing habits that can help avoid unnecessary quality loss.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="preview">
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">Try the preview</div><h2>Choose a video. Check your clip.</h2><p>Your selected video is previewed locally in this browser. This page does not upload it to a server.</p></div>
+      <div class="upload-grid">
+        <div class="card">
+          <h3>Video Preview</h3>
+          <p>Select a video from Photos or Files on your device.</p>
+          <label class="file-label">＋ Choose Video<input type="file" id="videoFile" accept="video/*"></label>
+          <video id="preview" controls playsinline hidden></video>
+          <div id="fileInfo" aria-live="polite"></div>
+        </div>
+        <div class="card">
+          <h3>Recommended Export</h3>
+          <p>Use these as general starting points. Keep the original frame rate when possible.</p>
+          <ul class="settings">
+            <li><span>Resolution</span><b>1080 × 1920</b></li>
+            <li><span>Aspect ratio</span><b>9:16 vertical</b></li>
+            <li><span>Frame rate</span><b>30 or 60 FPS</b></li>
+            <li><span>Format</span><b>MP4</b></li>
+            <li><span>Video codec</span><b>H.264</b></li>
+            <li><span>Audio codec</span><b>AAC</b></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="guide">
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">Quick guide</div><h2>From camera roll to upload.</h2><p>Four simple steps to prepare your next post.</p></div>
+      <div class="steps">
+        <article class="step"><div class="num">STEP 01</div><h3>Record clearly</h3><p>Use good lighting and keep your phone steady.</p></article>
+        <article class="step"><div class="num">STEP 02</div><h3>Edit carefully</h3><p>Avoid repeatedly exporting or compressing the same clip.</p></article>
+        <article class="step"><div class="num">STEP 03</div><h3>Export once</h3><p>Choose a suitable format and preserve your original quality.</p></article>
+        <article class="step"><div class="num">STEP 04</div><h3>Check upload</h3><p>Look for TikTok's high-quality upload option when available.</p></article>
+      </div>
+      <div class="notice"><strong>Important:</strong> This website is a video preview and learning guide. It does not increase video resolution, guarantee 1080p/60 FPS delivery, or publish directly to TikTok. TikTok may process and compress uploaded videos.</div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap footer-row"><span>© 2026 JUBAYER STUDIO. All rights reserved.</span><span>Made for creators · TikTok is a trademark of its respective owner.</span></div></footer>
+<script>
+const input=document.getElementById('videoFile');
+const video=document.getElementById('preview');
+const info=document.getElementById('fileInfo');
+let objectUrl=null;
+input.addEventListener('change',()=>{
+  const file=input.files && input.files[0];
+  if(objectUrl){URL.revokeObjectURL(objectUrl);objectUrl=null;}
+  video.pause();video.removeAttribute('src');video.load();video.hidden=true;info.textContent='';
+  if(!file)return;
+  if(!file.type.startsWith('video/')){info.textContent='Please select a video file.';return;}
+  objectUrl=URL.createObjectURL(file);video.src=objectUrl;video.hidden=false;
+  info.textContent='Selected: '+file.name+' · '+(file.size/1024/1024).toFixed(1)+' MB';
+});
+window.addEventListener('beforeunload',()=>{if(objectUrl)URL.revokeObjectURL(objectUrl);});
+</script>
+</body>
+</html>
